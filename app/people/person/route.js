@@ -10,7 +10,15 @@ export default Ember.Route.extend({
     return Promise.all(kottan.pokemonIds.map(id => {
       return window.$.getJSON('https://pokeapi.co/api/v1/pokemon/' + id);
     })).then(pokemons => {
-      return { kottan, pokemons };
+      return { kottan, pokemons: pokemons.map(p => Ember.Object.create(p)) };
     });
+  },
+
+  actions: {
+    like (pokemon) {
+      pokemon.set('liked', true);
+      return true;
+      // console.log('liked', pokemon);
+    }
   }
 });

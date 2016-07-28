@@ -3,7 +3,9 @@
 <ul>
 {{#each model.pokemons as |pokemon| }}
   <li>
-    {{pokemon-badge pokemon=pokemon}}
+    {{#like-button onLike=(route-action 'like' pokemon)}}
+      {{pokemon-badge pokemon=pokemon}}
+    {{/like-button}}
   </li>
 {{/each}}
 </ul>

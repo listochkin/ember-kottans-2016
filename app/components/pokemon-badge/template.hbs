@@ -4,6 +4,8 @@
 
 <p>Species: {{pokemon.species}}</p>
 
+<p>{{pokemon.liked}}</p>
+
 {{#deferred-content pokemonImage as |d| }}
   {{#d.fulfilled as |image| }}
     <img src="{{image}}" alt="image for {{pokemon.name}}">
