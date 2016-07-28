@@ -1,0 +1,16 @@
+<h3>{{pokemon.name}} </h3>
+
+<p>Speed: {{pokemon.speed}}</p>
+
+<p>Species: {{pokemon.species}}</p>
+
+{{#deferred-content pokemonImage as |d| }}
+  {{#d.fulfilled as |image| }}
+    <img src="{{image}}" alt="image for {{pokemon.name}}">
+  {{/d.fulfilled}}
+  {{#d.rejected as |error| }}
+    {{error}}
+  {{/d.rejected}}
+{{/deferred-content}}
+
+{{yield}}
