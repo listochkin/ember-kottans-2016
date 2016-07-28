@@ -1,3 +1,11 @@
-{{model.name}}
+{{model.kottan.name}}
+
+<ul>
+{{#each model.pokemons as |pokemon| }}
+  <li>
+    {{pokemon.name}}
+  </li>
+{{/each}}
+</ul>
 
 {{outlet}}

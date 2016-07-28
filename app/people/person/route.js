@@ -6,6 +6,11 @@ export default Ember.Route.extend({
     const kottan = window.DATA.filter(person => {
       return equalIgnoreCase(person.name, params.person_name);
     })[0];
-    return Promise.resolve(kottan);
+
+    return Promise.all(kottan.pokemonIds.map(id => {
+      return window.$.getJSON('https://pokeapi.co/api/v1/pokemon/' + id);
+    })).then(pokemons => {
+      return { kottan, pokemons };
+    });
   }
 });
