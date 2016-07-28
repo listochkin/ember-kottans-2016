@@ -1,7 +1,9 @@
 <ul>
   {{#each model as |kottan| }}
   <li>
-    {{kottan.name}}
+    {{#link-to 'people.person' kottan.name}}
+      {{kottan.name}}
+    {{/link-to}}
   </li>
   {{/each}}
 </ul>
